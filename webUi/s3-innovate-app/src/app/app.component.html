@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>S3 Innovate Pte. Ltd.</h1>
+  <div class="cards-container">
+    <div class="cards-from">
+      <form #form="ngForm" (ngSubmit)="post()">
+        <div class="from-group">
+          <label for="">Name</label>
+          <input type="text" name="name" [(ngModel)]="student.name">
+        </div>
+        <div class="from-group">
+          <label for="">Student ID</label>
+          <input type="text" name="studentid" [(ngModel)]="student.studentId">
+        </div>
+        <div class="from-group from-group-inline">
+          <div>
+            <label for="">CGPA</label>
+            <input type="text" name="cgpa" [(ngModel)]="student.cgpa">
+          </div>
+          <div>
+            <label for="">University</label>
+            <input type="text" name="university" [(ngModel)]="student.university">
+          </div>
+          <div>
+            <label for="">Passing Year</label>
+            <input type="text" name="passingyear" [(ngModel)]="student.passingYear">
+          </div>
+        </div>
+        <div>
+          <button>Save</button>
+        </div>
+      </form>
+    </div><br>
+    <div class="cards-grid">
+      <div (click)="data(student)" class="card-row" *ngFor="let student of students">
+        <div class="card-row-details">
+          <span>{{student.name}}</span>
+          <span>{{student.studentId}}</span>
+          <span>{{student.cgpa}}</span>
+          <span>{{student.university}}</span>
+          <span>{{student.passingYear}}</span>
+        </div>
+        <div class="card-row-action">
+          <a (click)="delete(student.id)"><i class="fa-solid fa-trash-can"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
